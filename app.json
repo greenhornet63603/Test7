@@ -1,7 +1,7 @@
 
 {
-    "name": "Allinonebot",
-    "description": "ALLINONEBOT",
+    "name": "CPEXTBOT",
+    "description": "CPEXTBOT",
     "repository": "https://github.com/",
     "keywords": [
         "telegram bot",
@@ -10,17 +10,17 @@
     "env": {
             "API_ID": {
             "description": "Your API_ID from https://my.telegram.org/apps",
-            "value": "27097807",
+            "value": "27400172",
             "required": true
         },
         "API_HASH": {
             "description": "Your API_HASH from https://my.telegram.org/apps",       
-            "value": "9fd790a9cb1f639c921d941621d2959d",
+            "value": "56d0a75c5f9a9de6beb5452aa63c2d36",
             "required": true
         },
         "BOT_TOKEN": {
             "description": "Your Bot token from @Botfather",
-            "value": "6917084113:AAFOK37UIoEQLtY2HYu5UeF77cIF4BfGnwk",
+            "value": "8574709239:AAEzn3HaTJQEZCNN5YTrQUjQp2_G1FGIuuY",
             "required": true
         }
     }
