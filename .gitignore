@@ -152,6 +152,35 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+
+# ------------------------------
+# Pyrogram / Telegram Bot Extras
+# ------------------------------
+
+# Pyrogram session files (VERY IMPORTANT — keep private)
+*.session
+*.session-journal
+
+# Logs
+log.txt
+*.log
+
+# Local config
+config.ini
+config.json
+
+# Render / Deployment
+*.pid
+
+# Cache
+cache/
+temp/
+downloads/
+
+# Ignore compiled plugins
+plugins/__pycache__/
+
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
