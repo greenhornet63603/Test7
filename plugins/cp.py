@@ -48,6 +48,9 @@ import cloudscraper
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from base64 import b64encode, b64decode
+from main import LOGGER, prefixes, AUTH_USERS
+from config import Config
+
 
 @bot.on_message(filters.command(["cp"]) & ~filters.edited)
 async def account_login(bot: Client, m: Message):
