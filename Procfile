@@ -1,1 +1,1 @@
-worker: python main.py
+web: gunicorn render_server:app --bind 0.0.0.0:$PORT --workers 1
