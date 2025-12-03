@@ -1,3 +1,13 @@
+pyrogram==2.0.106
+tgcrypto
+flask
+pyromod
+pymongo
+dnspython
+cryptography
+requests
+aiohttp
+urllib3
 Pyrogram==2.0.106
 tgcrypto==1.2.5
 requests==2.31.0
