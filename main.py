@@ -1,25 +1,54 @@
+import os
 import asyncio
-from pyrogram import Client
+import logging
+from logging.handlers import RotatingFileHandler
+
+from pyrogram import Client, idle
+from pyromod import listen
+import tgcrypto
+
 from config import Config
 
-# Create client (use YOUR API_ID, API_HASH, BOT_TOKEN from Config)
-stark = Client(
-    "stark",
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH,
-    bot_token=Config.BOT_TOKEN,
+# ---------------------------------------
+#  Logging
+# ---------------------------------------
+LOGGER = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(name)s - %(message)s",
+    handlers=[
+        RotatingFileHandler("log.txt", maxBytes=5_000_000, backupCount=10),
+        logging.StreamHandler(),
+    ]
 )
 
-# Import handlers (your __init__.py handlers)
-import __init__  # IMPORTANT: keeps your handlers active
+# ---------------------------------------
+#  Globals
+# ---------------------------------------
+AUTH_USERS = [int(x) for x in Config.AUTH_USERS.split(",") if x]
+prefixes = ["/", "!", "?", "~"]
 
+# ---------------------------------------
+#  Bot Instance
+# ---------------------------------------
+bot = Client(
+    "ExtractorBot",
+    bot_token=Config.BOT_TOKEN,
+    api_id=Config.API_ID,
+    api_hash=Config.API_HASH,
+    sleep_threshold=20,
+    plugins=dict(root="plugins"),
+    workers=50
+)
 
-async def main():
-    print("Starting bot...")
-    await stark.start()
-    print("Bot is running!")
-    await asyncio.Event().wait()  # keeps bot running forever
-
+# ---------------------------------------
+#  Start Bot
+# ---------------------------------------
+async def start_bot():
+    await bot.start()
+    me = await bot.get_me()
+    LOGGER.info(f"Bot Started: @{me.username}")
+    await idle()
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(start_bot())
